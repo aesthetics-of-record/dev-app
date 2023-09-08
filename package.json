@@ -53,6 +53,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.1",
     "react-icons": "^4.10.1",
+    "stripe": "^13.5.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
@@ -61,6 +62,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.4.0"
+    "@tauri-apps/cli": "^1.4.0",
+    "supabase": "^1.93.0"
   }
 }
