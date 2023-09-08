@@ -1,6 +1,6 @@
-'use client';
-import * as React from 'react';
-import useTheme from '@/hooks/useTheme';
+"use client";
+import * as React from "react";
+import useTheme from "@/hooks/useTheme";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -14,40 +14,40 @@ export function ThemeProvider({ children, className }: ThemeProviderProps) {
   React.useEffect(() => {
     // 첫 렌더링 일 때
     if (theme === null) {
-      if (!('theme' in localStorage)) {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.classList.add('dark-red');
+      if (!("theme" in localStorage)) {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          localStorage.setItem("theme", "dark-red");
+          document.documentElement.classList.add("dark-red");
         } else {
-          document.documentElement.classList.add('light-red');
+          localStorage.setItem("theme", "light-red");
+          document.documentElement.classList.add("light-red");
         }
       }
 
-      if ('theme' in localStorage) {
-        document.documentElement.classList.add(
-          localStorage.getItem('theme')!
-        );
+      if ("theme" in localStorage) {
+        document.documentElement.classList.add(localStorage.getItem("theme")!);
       }
     }
     //  theme변경으로 일어난 렌더링 일 때
     else {
       // 처음으로 theme를 변경 할 때
-      if (!('theme' in localStorage)) {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          localStorage.setItem('theme', theme);
-          document.documentElement.classList.replace('dark-red', theme);
+      if (!("theme" in localStorage)) {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          localStorage.setItem("theme", theme);
+          document.documentElement.classList.replace("dark-red", theme);
         } else {
-          localStorage.setItem('theme', theme);
-          document.documentElement.classList.replace('dark-light', theme);
+          localStorage.setItem("theme", theme);
+          document.documentElement.classList.replace("dark-light", theme);
         }
       }
       // 첫 theme 변경이 아닐 때
-      if ('theme' in localStorage) {
+      if ("theme" in localStorage) {
         // 그 전 theme 를 새로운 theme로 변경
         document.documentElement.classList.replace(
-          localStorage.getItem('theme')!,
+          localStorage.getItem("theme")!,
           theme
         );
-        localStorage.setItem('theme', theme);
+        localStorage.setItem("theme", theme);
       }
     }
   }, [theme]);
