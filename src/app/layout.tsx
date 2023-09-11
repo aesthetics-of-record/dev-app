@@ -1,19 +1,21 @@
-import "../styles/globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/providers/themeProvider";
-import ReactQueryProvider from "@/providers/ReactQueryProvider";
-import { Toaster } from "@/components/ui/toaster";
-import SupabaseProvider from "@/providers/SupabaseProvider";
-import UserProvider from "@/providers/UserProvider";
-import ModalProvider from "@/providers/ModalProvider";
-import Header from "@/components/Header";
+import '../styles/globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { ThemeProvider } from '@/providers/themeProvider';
+import ReactQueryProvider from '@/providers/ReactQueryProvider';
+import { Toaster } from '@/components/ui/toaster';
+import SupabaseProvider from '@/providers/SupabaseProvider';
+import UserProvider from '@/providers/UserProvider';
+import ModalProvider from '@/providers/ModalProvider';
+import Header from '@/components/Header';
+import HotToasterProvider from '@/providers/HotToasterProvider';
+import { useUser } from '@/hooks/useUser';
 
-const font = Inter({ subsets: ["latin"] });
+const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Project-Dev-App",
-  description: "this is my Project-Dev-App",
+  title: 'Project-Dev-App',
+  description: 'this is my Project-Dev-App',
 };
 
 export default function RootLayout({
@@ -33,6 +35,7 @@ export default function RootLayout({
           </SupabaseProvider>
         </ReactQueryProvider>
         <Toaster />
+        <HotToasterProvider />
       </body>
     </html>
   );
