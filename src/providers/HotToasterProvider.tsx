@@ -7,8 +7,8 @@ const HotToasterProvider = () => {
     <Toaster
       toastOptions={{
         style: {
-          background: "#333",
-          color: "#fff",
+          background: "hsl(var(--background))",
+          color: "hsl(var(--foreground))",
         },
       }}
     />

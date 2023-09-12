@@ -1,55 +1,55 @@
-'use client';
+"use client";
 
 import {
   useSessionContext,
   useSupabaseClient,
-} from '@supabase/auth-helpers-react';
-import Modal from './Modal';
-import { useRouter } from 'next/navigation';
-import { Auth } from '@supabase/auth-ui-react';
-import useAuthModal from '@/hooks/modals/useAuthModal';
-import { supabaseAuthUiLocalization } from '@/localization/kor';
-import { useEffect } from 'react';
+} from "@supabase/auth-helpers-react";
+import Modal from "./Modal";
+import { useRouter } from "next/navigation";
+import { Auth } from "@supabase/auth-ui-react";
+import useAuthModal from "@/hooks/modals/useAuthModal";
+import { supabaseAuthUiLocalization } from "@/localization/kor";
+import { useEffect } from "react";
 
 const customTheame = {
   default: {
     colors: {
-      brand: 'hsl(var(--background))',
-      brandAccent: 'hsl(var(--primary))',
-      brandButtonText: 'hsl(var(--foreground))',
-      defaultButtonBackground: 'hsl(val(--background))',
-      defaultButtonBackgroundHover: 'hsl(var(--primary))',
-      defaultButtonBorder: 'hsl(var(--primary))',
-      defaultButtonText: 'hsl(var(--foreground))',
-      dividerBackground: 'gray',
-      inputBackground: 'transparent',
-      inputBorder: 'lightgray',
-      inputBorderHover: 'hsl(var(--primary))',
-      inputBorderFocus: 'hsl(var(--primary))',
-      inputText: 'hsl(var(--foreground))',
-      inputLabelText: 'gray',
-      inputPlaceholder: 'darkgray',
-      messageText: 'gray',
-      messageTextDanger: 'red',
-      anchorTextColor: 'gray',
-      anchorTextHoverColor: 'darkgray',
+      brand: "hsl(var(--background))",
+      brandAccent: "hsl(var(--primary))",
+      brandButtonText: "hsl(var(--foreground))",
+      defaultButtonBackground: "hsl(val(--background))",
+      defaultButtonBackgroundHover: "hsl(var(--primary))",
+      defaultButtonBorder: "hsl(var(--primary))",
+      defaultButtonText: "hsl(var(--foreground))",
+      dividerBackground: "gray",
+      inputBackground: "hsl(val(--background))",
+      inputBorder: "lightgray",
+      inputBorderHover: "hsl(var(--primary))",
+      inputBorderFocus: "hsl(var(--primary))",
+      inputText: "hsl(var(--foreground))",
+      inputLabelText: "gray",
+      inputPlaceholder: "darkgray",
+      messageText: "gray",
+      messageTextDanger: "red",
+      anchorTextColor: "gray",
+      anchorTextHoverColor: "darkgray",
     },
     space: {
-      spaceSmall: '4px',
-      spaceMedium: '8px',
-      spaceLarge: '16px',
-      labelBottomMargin: '8px',
-      anchorBottomMargin: '4px',
-      emailInputSpacing: '4px',
-      socialAuthSpacing: '4px',
-      buttonPadding: '10px 15px',
-      inputPadding: '10px 15px',
+      spaceSmall: "4px",
+      spaceMedium: "8px",
+      spaceLarge: "16px",
+      labelBottomMargin: "8px",
+      anchorBottomMargin: "4px",
+      emailInputSpacing: "4px",
+      socialAuthSpacing: "4px",
+      buttonPadding: "10px 15px",
+      inputPadding: "10px 15px",
     },
     fontSizes: {
-      baseBodySize: '13px',
-      baseInputSize: '14px',
-      baseLabelSize: '14px',
-      baseButtonSize: '14px',
+      baseBodySize: "13px",
+      baseInputSize: "14px",
+      baseLabelSize: "14px",
+      baseButtonSize: "14px",
     },
     fonts: {
       bodyFontFamily: `ui-sans-serif, sans-serif`,
@@ -62,14 +62,14 @@ const customTheame = {
     // letterSpacings: {},
     // sizes: {},
     borderWidths: {
-      buttonBorderWidth: '1px',
-      inputBorderWidth: '1px',
+      buttonBorderWidth: "1px",
+      inputBorderWidth: "1px",
     },
     // borderStyles: {},
     radii: {
-      borderRadiusButton: '4px',
-      buttonBorderRadius: '4px',
-      inputBorderRadius: '4px',
+      borderRadiusButton: "4px",
+      buttonBorderRadius: "4px",
+      inputBorderRadius: "4px",
     },
     // shadows: {},
     // zIndices: {},
@@ -104,7 +104,7 @@ const AuthModal = () => {
       onChange={onChange}
     >
       <Auth
-        providers={['github', 'google']}
+        providers={["github", "google"]}
         supabaseClient={supabaseClient}
         appearance={{
           theme: customTheame,
@@ -117,6 +117,7 @@ const AuthModal = () => {
         localization={{
           variables: supabaseAuthUiLocalization,
         }}
+        redirectTo="http://localhost:3000/auth/callback"
       />
     </Modal>
   );

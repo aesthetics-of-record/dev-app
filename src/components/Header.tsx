@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { twMerge } from 'tailwind-merge';
-import { Button } from '@/components/ui/button';
-import useAuthModal from '@/hooks/modals/useAuthModal';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { useUser } from '@/hooks/useUser';
-import { FaUserAlt } from 'react-icons/fa';
-import { ThemeMenu } from './ThemeMenu';
-import toast from 'react-hot-toast';
+import { useRouter } from "next/navigation";
+import { twMerge } from "tailwind-merge";
+import { Button } from "@/components/ui/button";
+import useAuthModal from "@/hooks/modals/useAuthModal";
+import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+import { FaUserAlt } from "react-icons/fa";
+import { ThemeMenu } from "./ThemeMenu";
+import toast from "react-hot-toast";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -20,17 +19,18 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const router = useRouter();
 
   const supabaseClient = useSupabaseClient();
-  const { user } = useUser();
+  const user = useUser();
+
+  console.log(user);
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    // TODO: Reset any playing songs
     router.refresh();
 
     if (error) {
       toast.error(error.message);
     } else {
-      toast.success('로그아웃!');
+      toast.success("로그아웃!");
     }
   };
 
@@ -52,26 +52,17 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
 
           {user ? (
             <div className="flex gap-x-4 items-center">
-              <Button
-                onClick={handleLogout}
-                className=" px-6 py-2"
-              >
+              <Button onClick={handleLogout} className=" px-6 py-2">
                 Logout
               </Button>
-              <Button
-                onClick={() => router.push('/account')}
-                className=""
-              >
+              <Button onClick={() => router.push("/account")} className="">
                 <FaUserAlt />
               </Button>
             </div>
           ) : (
             <>
               <div>
-                <Button
-                  onClick={authModal.onOpen}
-                  className="px-6 py-2"
-                >
+                <Button onClick={authModal.onOpen} className="px-6 py-2">
                   Log in
                 </Button>
               </div>
