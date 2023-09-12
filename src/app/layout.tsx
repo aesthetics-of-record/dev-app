@@ -7,6 +7,8 @@ import { Toaster } from "@/components/ui/toaster";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import HotToasterProvider from "@/providers/HotToasterProvider";
+import SheetSide from "@/components/SheetSide";
+import SideLayout from "@/components/side/SideLayout";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -25,7 +27,9 @@ export default function RootLayout({
       <body className={font.className}>
         <ReactQueryProvider>
           <SupabaseProvider>
-            <ThemeProvider>{children}</ThemeProvider>
+            <ThemeProvider>
+              <SideLayout>{children}</SideLayout>
+            </ThemeProvider>
             <ModalProvider />
           </SupabaseProvider>
         </ReactQueryProvider>
