@@ -1,5 +1,5 @@
-import LeftSidebar from "./LeftSidebar";
-import RightSidebar from "./RightSidebar";
+import LeftSidebar from './LeftSidebar';
+import RightSidebar from './RightSidebar';
 
 interface SideLayoutProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface SideLayoutProps {
 const SideLayout: React.FC<SideLayoutProps> = ({ children }) => {
   return (
     <div className="flex">
-      <LeftSidebar />
+      <LeftSidebar className="hidden md:flex" />
 
       <main className="h-full flex-1 overflow-y-auto">{children}</main>
 

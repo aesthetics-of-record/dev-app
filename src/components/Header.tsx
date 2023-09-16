@@ -9,6 +9,7 @@ import { ThemeMenu } from './ThemeMenu';
 import toast from 'react-hot-toast';
 import UserAvatar from './UsetAvater';
 import UserMenu from './UserMenu';
+import SheetSide from './side/SheetSide';
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -37,13 +38,19 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     <div
       className={twMerge(
         `
+
     h-fit
   `,
         className
       )}
     >
-      <div className="w-full mb-4 flex items-center justify-between p-4 border fixed">
-        <div></div>
+      <div className="w-full flex items-center justify-between p-4 border fixed bg-background/90">
+        <div>
+          <div className="block md:hidden">
+            <SheetSide />
+          </div>
+        </div>
+
         <div className="flex justify-center items-center gap-x-4">
           <ThemeMenu />
 
@@ -70,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           )}
         </div>
       </div>
-      <div className="h-20" />
+      <div className="h-[74px]" /> {/* 헤더크기인 74px 만큼.. */}
       <div className="">{children}</div>
     </div>
   );
