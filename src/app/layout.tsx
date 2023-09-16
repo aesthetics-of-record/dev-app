@@ -9,6 +9,7 @@ import ModalProvider from "@/providers/ModalProvider";
 import HotToasterProvider from "@/providers/HotToasterProvider";
 import SheetSide from "@/components/SheetSide";
 import SideLayout from "@/components/side/SideLayout";
+import Header from "@/components/Header";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,9 @@ export default function RootLayout({
         <ReactQueryProvider>
           <SupabaseProvider>
             <ThemeProvider>
-              <SideLayout>{children}</SideLayout>
+              <Header>
+                <SideLayout>{children}</SideLayout>
+              </Header>
             </ThemeProvider>
             <ModalProvider />
           </SupabaseProvider>

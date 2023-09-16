@@ -27,14 +27,12 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
       className={twMerge(
         `
     h-fit
-    bg-gradient-to-b
-    from-primary/50
-    p-6
   `,
         className
       )}
     >
-      <div className="w-full mb-4 flex items-center justify-between">
+      <div className="w-full mb-4 flex items-center justify-between p-4 border fixed">
+        <div></div>
         <div className="flex justify-center items-center gap-x-4">
           <ThemeMenu />
 
@@ -55,7 +53,8 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           )}
         </div>
       </div>
-      {children}
+      <div className="h-20" />
+      <div className="">{children}</div>
     </div>
   );
 };

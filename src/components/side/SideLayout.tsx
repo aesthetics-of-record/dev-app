@@ -12,7 +12,7 @@ const SideLayout: React.FC<SideLayoutProps> = ({ children }) => {
 
       <main className="h-full flex-1 overflow-y-auto">{children}</main>
 
-      <RightSidebar />
+      {/* <RightSidebar /> */}
     </div>
   );
 };
