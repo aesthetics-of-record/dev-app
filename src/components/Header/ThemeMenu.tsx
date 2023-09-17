@@ -29,6 +29,7 @@ export function ThemeMenu() {
         <Button
           variant="outline"
           size="icon"
+          className="rounded-full"
         >
           <IoColorPalette
             color={'hsl(var(--primary))'}

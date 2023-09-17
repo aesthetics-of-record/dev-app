@@ -7,6 +7,7 @@ import { BiSearch } from 'react-icons/bi';
 import { usePathname } from 'next/navigation';
 import SidebarItem from './SidebarItem';
 import { cn } from '@/lib/utils';
+import { Separator } from '../ui/separator';
 
 interface LeftSidebarProps {
   className?: string;
@@ -18,15 +19,15 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ className }) => {
     () => [
       {
         icon: HiHome,
-        label: 'Home',
+        label: '홈',
         active: pathname !== '/search',
         href: '/',
       },
       {
         icon: BiSearch,
-        label: 'Search',
-        active: pathname === '/search',
-        href: '/search',
+        label: '트렌드',
+        active: pathname === '/trend',
+        href: '/trend',
       },
     ],
     [pathname]
@@ -35,8 +36,8 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ className }) => {
   return (
     <div className={cn('flex', className)}>
       <div className="flex flex-col gap-y-2 h-screen w-[250px] border-r">
-        <Box className="h-full">
-          <div className="flex flex-col gap-y-4 px-5 py-4">
+        <Box className="h-full px-5">
+          <div className="flex flex-col gap-y-2 px-5 py-4">
             {routes.map((item) => (
               <SidebarItem
                 key={item.label}
@@ -44,6 +45,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ className }) => {
               ></SidebarItem>
             ))}
           </div>
+          <Separator />
         </Box>
       </div>
     </div>

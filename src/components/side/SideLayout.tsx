@@ -8,9 +8,11 @@ interface SideLayoutProps {
 const SideLayout: React.FC<SideLayoutProps> = ({ children }) => {
   return (
     <div className="flex">
-      <LeftSidebar className="hidden md:flex" />
+      <LeftSidebar className="hidden md:flex fixed" />
 
-      <main className="h-full flex-1 overflow-y-auto">{children}</main>
+      <main className="ml-0 md:ml-[249px] h-full flex-1 overflow-y-auto">
+        {children}
+      </main>
 
       {/* <RightSidebar /> */}
     </div>

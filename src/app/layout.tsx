@@ -6,10 +6,9 @@ import { Toaster } from '@/components/ui/toaster';
 import SupabaseProvider from '@/providers/SupabaseProvider';
 import ModalProvider from '@/providers/ModalProvider';
 import HotToasterProvider from '@/providers/HotToasterProvider';
-import SheetSide from '@/components/side/SheetSide';
 import SideLayout from '@/components/side/SideLayout';
-import Header from '@/components/Header';
-import TrpcProvider from './_trpc/trpcProvider';
+import Header from '@/components/Header/Header';
+import TrpcProvider from './_trpc/TrpcProvider';
 
 const font = Inter({ subsets: ['latin'] });
 
@@ -24,7 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      className="scrollbar"
+    >
       <body className={font.className}>
         <TrpcProvider>
           <SupabaseProvider>

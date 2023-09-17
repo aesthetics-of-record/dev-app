@@ -12,12 +12,19 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '../ui/button';
 import LeftSidebar from './LeftSidebar';
+import { LucideAlignJustify } from 'lucide-react';
 
 const SheetSide = () => {
   return (
     <Sheet key={'left'}>
       <SheetTrigger asChild>
-        <Button variant="outline">left</Button>
+        <Button
+          variant="outline"
+          size={'icon'}
+          className="rounded-full p-2"
+        >
+          <LucideAlignJustify width={16} />
+        </Button>
       </SheetTrigger>
       <SheetContent side={'left'}>
         <LeftSidebar />
