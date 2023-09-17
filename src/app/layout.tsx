@@ -2,7 +2,6 @@ import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/providers/themeProvider';
-import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import { Toaster } from '@/components/ui/toaster';
 import SupabaseProvider from '@/providers/SupabaseProvider';
 import ModalProvider from '@/providers/ModalProvider';
@@ -10,6 +9,7 @@ import HotToasterProvider from '@/providers/HotToasterProvider';
 import SheetSide from '@/components/side/SheetSide';
 import SideLayout from '@/components/side/SideLayout';
 import Header from '@/components/Header';
+import TrpcProvider from './_trpc/trpcProvider';
 
 const font = Inter({ subsets: ['latin'] });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={font.className}>
-        <ReactQueryProvider>
+        <TrpcProvider>
           <SupabaseProvider>
             <ThemeProvider>
               <Header>
@@ -35,7 +35,8 @@ export default function RootLayout({
             </ThemeProvider>
             <ModalProvider />
           </SupabaseProvider>
-        </ReactQueryProvider>
+        </TrpcProvider>
+
         <Toaster />
         <HotToasterProvider />
       </body>
